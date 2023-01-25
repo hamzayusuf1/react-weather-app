@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { AiOutlineSearch as SearchIcon } from "react-icons/ai";
+import { AppContext } from "../../App";
 
 const API_KEY = "e8f6a67301c717c985ba495ce7bc1b79";
 
 export const SearchForm = () => {
+  const { weatherData, setWeatherData } = useContext(AppContext);
+
   const [inputValue, setInputValue] = useState("");
   const [searchPlace, setSearchPlace] = useState("");
 
@@ -15,7 +18,9 @@ export const SearchForm = () => {
         const response = await fetch(url);
         const data = await response.json();
 
-        console.log(data);
+        setWeatherData(data);
+
+        console.log(weatherData);
 
         setSearchPlace("");
         setInputValue("");
