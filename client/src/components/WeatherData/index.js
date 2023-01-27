@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../../App";
 
 import IMG from "../../assets/weather.png";
@@ -9,7 +9,7 @@ export const WeatherData = () => {
   const { weatherData } = useContext(AppContext);
 
   if (!weatherData) {
-    return <h1>Please enter a city and search</h1>;
+    return <h1 className="px-3">Please enter a city and search</h1>;
   }
 
   return (
@@ -26,7 +26,7 @@ export const WeatherData = () => {
         </ul>
       </div>
       <div className="min-w-1/2 mx-auto">
-        <img src={IMG} alt="forecast-image" className="max-h-full max-w-full" />
+        <img src={IMG} alt="forecast" className="max-h-full max-w-full" />
       </div>
     </div>
   );

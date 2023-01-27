@@ -18,7 +18,7 @@ export const Hero = () => {
         <h1 className="text-5xl font-title">Weather Dashboard</h1>
       </div>
       <div className="">
-        <div className="flex">
+        <div className="flex items-center">
           <BiTimeFive />
           <h1 className="px-1">{Clock}</h1>
         </div>

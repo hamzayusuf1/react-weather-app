@@ -5,7 +5,8 @@ import { AppContext } from "../../App";
 const API_KEY = "e8f6a67301c717c985ba495ce7bc1b79";
 
 export const SearchForm = () => {
-  const { weatherData, setWeatherData } = useContext(AppContext);
+  const { weatherData, setWeatherData, cities, setCities } =
+    useContext(AppContext);
 
   const [inputValue, setInputValue] = useState("");
   const [searchPlace, setSearchPlace] = useState("");
@@ -20,7 +21,15 @@ export const SearchForm = () => {
 
         setWeatherData(data);
 
-        console.log(weatherData);
+        console.log(data);
+
+        const allCities = JSON.parse(localStorage.getItem("cities")) || [];
+
+        if (!allCities.includes(searchPlace.toLowerCase())) {
+          allCities.push(searchPlace.toLowerCase());
+          localStorage.setItem("cities", JSON.stringify(allCities));
+          setCities([...cities, searchPlace.toLowerCase()]);
+        }
 
         setSearchPlace("");
         setInputValue("");
@@ -28,8 +37,6 @@ export const SearchForm = () => {
     }
     fetchData();
   }, [searchPlace]);
-
-  console.log(searchPlace);
 
   const formSubmit = (e) => {
     e.preventDefault();
