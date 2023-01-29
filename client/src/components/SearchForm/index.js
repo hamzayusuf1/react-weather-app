@@ -57,7 +57,7 @@ export const SearchForm = () => {
           />
           <button
             onClick={formSubmit}
-            className="inline-block px-4 py-2.5 bg-[#4374B7] text-white font-medium text-xs rounded-r-lg shadow-md hover:bg-[#598BCF] hover:shadow-lg transition duration-150 ease-in-out flex items-center"
+            className="inline-block px-4 py-2.5 bg-[#5B95C9] text-white font-medium text-xs rounded-r-lg shadow-md hover:bg-[#598BCF] hover:shadow-lg transition duration-150 ease-in-out flex items-center"
           >
             <SearchIcon size={25} />
           </button>
