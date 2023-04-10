@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { Helmet } from "react-helmet";
 
 import "./App.css";
 import { Hero } from "./components/Hero";
@@ -23,6 +24,11 @@ function App() {
         setCities,
       }}
     >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Weather app</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="grid grid-cols-12">
         <div className="col-span-3 bg-[#D3D3D3] min-h-screen">
           <SearchForm />
